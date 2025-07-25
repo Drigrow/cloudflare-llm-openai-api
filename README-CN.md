@@ -17,6 +17,7 @@
 ### 部署步骤
 
 1. 创建一个绑定了名为 `AI` 的 AI 绑定的 Cloudflare Worker（此绑定名需与代码保持一致）。
+     - 详细步骤： 创建 Workers ，不使用模板(Hello World模板) -> 选择并进入这个 Workers 项目的管理页面 -> 选择 Bindings (绑定) -> 点击 Add Bindings (添加绑定) -> 添加 Workers AI 绑定， 命名为 `AI` -> 结束。
 2. 将 Worker 代码中的 `SECRET_KEY` 替换为你自己的 API 密钥（密钥值可自定义，请务必牢记）。
 3. 将 Worker 部署到 Cloudflare。
 4. （可选）如果你所在地区无法访问 `.workers.dev` 域名，可以绑定自定义域名。
@@ -39,7 +40,7 @@ curl -X POST https://your-worker-domain.workers.dev/v1/chat/completions \
   -d '{
     "model": "@cf/meta/llama-3.1-8b-instruct",
     "messages": [
-      {"role": "system", "content": "你是一个有帮助的助手。"},
+      {"role": "system", "content": "You are a helpful assistant."},
       {"role": "user", "content": "法国的首都是哪里？"}
     ],
     "temperature": 0.7,
@@ -50,12 +51,12 @@ curl -X POST https://your-worker-domain.workers.dev/v1/chat/completions \
 ## 已知限制
 
 * 目前不支持流式响应（`stream=true`），若启用将返回 501 错误。
-* 返回的令牌使用统计为占位符（始终为 0），因为 Cloudflare AI 暂未提供相关数据。
+* 返回的 tokens 使用统计为占位符（始终为 0），因为 Cloudflare AI 暂未提供相关数据。
 * 主要适合个人或开发使用。
 
-## 许可证
+## License
 
-MIT 许可证
+MIT License
 
 ## 致谢
 
