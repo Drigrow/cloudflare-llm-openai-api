@@ -6,7 +6,7 @@ This project hosts Cloudflare large language models (LLMs) on Cloudflare Workers
 
 ## Features
 
-- Serve Cloudflare AI models (e.g., LLaMA) directly through an OpenAI-compatible REST API.
+- Serve Cloudflare AI models directly through an OpenAI-compatible API.
 - Support chat completions with parameters such as temperature, max tokens, and model selection.
 - Provide a `/v1/models` endpoint listing available Cloudflare models in OpenAI API format.
 - Simple API key authorization for controlled access.
